@@ -87,20 +87,18 @@ Das Fazit wird neu geschrieben.
 **TODO: Inhalte werden von Viet Pham bis Anfang Woche 24 (KW vor 10.06.) nachgereicht.**
 
 Vorgeschlagene Struktur (Platzhalter):
-- Worum geht es? Welcher reale Anwendungsfall? (z. B. industrielle Bildverarbeitung, Qualitätskontrolle)
-- Warum ist Risserkennung schwierig? (Bildqualität, Variabilität, False Positives)
+- Anwendungsfall: Qualitätskontrolle der Pressen. Das erkennen der Risse
+- Warum ist Risserkennung schwierig? (Das nicht erkennen der Risse. Kleine Risse)
 - Wo liegt der Mehrwert für ANDRITZ Schuler / Industrie allgemein?
-- Abgrenzung: klassische CV vs. KI-basierte Verfahren
+- Das Projekt lief seit zwei Jahren und bisherige gescheiterte Ansätze sind gescheitert.
 - **Visuell:** Beispielbild eines Risses + Highlighting (Platzhalter)
 
 ### Folie 8 — Risserkennung: Ansatz & Methodik (6:45–8:00) — *Viet Pham*
 **TODO: Inhalte werden von Viet Pham nachgereicht.**
 
 Vorgeschlagene Struktur (Platzhalter):
-- Gewählter Ansatz (Modell-Architektur, Datenset, Training)
-- Wie wurde Vibe Coding genutzt? (Daten-Pipeline, Modell-Training, Evaluation)
-- Welche Rolle hatte KI als Assistent? (Code, Hyperparameter, Auswertung)
-- Iterationsschleife: Mensch ↔ KI
+- Gewählter Ansatz (Gemini-3.1-Flash)
+- Wie wurde Vibe Coding genutzt? (Basierend auf den klassifizierten Datensätzen hat die LLM selbst Prompt Engineering betrieben, um die Bilder korrekt zu klassifizieren)
 - **Visuell:** Architektur-Diagramm / Trainings-Pipeline (Platzhalter)
 
 ### Folie 9 — Risserkennung: Ergebnis & Erkenntnisse (8:00–9:15) — *Viet Pham*
