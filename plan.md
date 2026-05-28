@@ -112,34 +112,40 @@ Vorgeschlagene Struktur (Platzhalter):
 - **Visuell:** Vorher/Nachher-Vergleich + Metriken-Diagramm (Platzhalter)
 
 ### Folie 10 — Fully Agentic: Konzept (9:15–10:30) — *Jakob Ayo*
-**TODO: Inhalte werden von Jakob Ayo nachgereicht.**
-
-Vorgeschlagene Struktur (Platzhalter):
-- Was bedeutet "Fully Agentic"? Abgrenzung zu Human-in-the-Loop
-- Welche Aufgaben können vollständig delegiert werden?
-- Wo sind die Grenzen / welche Voraussetzungen müssen erfüllt sein?
-- Wissenschaftlicher Bezug zur Bachelor-Arbeit
-- **Visuell:** Spektrum-Diagramm von "Manual" → "Co-Pilot" → "Agentic" → "Fully Agentic" (Platzhalter)
+- **Definition (zwei verschränkte Sichten):**
+  - **Autonomie-Spektrum:** Manual → Co-Pilot → Agentic → **Fully Agentic** (zunehmender Verzicht auf menschliches Eingreifen)
+  - **Closed-Loop-System:** Plan → Act → Observe → Reflect — der Agent korrigiert sich selbst statt auf den Menschen zu warten
+- **Welche Aufgaben können vollständig delegiert werden:**
+  - Test-Generierung für bestehenden Code mit bekanntem Verhalten
+  - Bugfixes mit Reproducer (failing test oder klare Repro-Schritte)
+  - Greenfield-Features mit Spec, die automatisch verifizierbar ist
+- **Voraussetzungen / Grenzen:**
+  - **Task-Verifizierbarkeit:** kein maschinell prüfbares Erfolgskriterium → keine Vollautonomie
+  - **Reversibilität:** jede Aktion muss rückgängig machbar sein (git revert, DB-Transaktionen, Sandbox-Branches); irreversible Operationen bleiben menschlich gegated
+- **Visuell:** Oben Spektrum-Diagramm (Manual → Fully Agentic), darunter Closed-Loop-Kreis (Plan → Act → Observe → Reflect)
 
 ### Folie 11 — Fully Agentic: Architektur & Workflow (10:30–11:45) — *Jakob Ayo*
-**TODO: Inhalte werden von Jakob Ayo nachgereicht.**
-
-Vorgeschlagene Struktur (Platzhalter):
-- Architektur eines vollagentischen Workflows (Orchestrator, Subagents, Tools)
-- Beispiel-Workflow: vom Ticket bis zum Merge ohne menschliches Eingreifen
-- Sicherheitsmechanismen (Sandboxing, Rate Limits, Approvals)
-- Beobachtbarkeit und Audit
-- **Visuell:** Workflow-Diagramm — Ticket → Plan → Code → Test → Review → Merge (Platzhalter)
+- **Architektur:** Hauptagent ist **Orchestrator + Planner** — er zerlegt das Ticket, plant die Schritte und delegiert
+- **Subagents** übernehmen **Coding und Verifikation** (Tests, Lints, Checks) und reporten Ergebnisse zurück an den Orchestrator
+- **Workflow:** Ticket → Orchestrator plant + zerlegt → Subagents arbeiten ihre Tasks ab → Report zurück an Orchestrator → ggf. nächster Subagent → Merge
+- **Sicherheitsmechanismus — Approval Gates nach *jeder* Subagent-Task:**
+  - Orchestrator (oder Mensch) prüft das Ergebnis bevor der nächste Schritt startet
+  - Kontrollierte Eskalation statt Drift — Fehler werden früh aufgefangen, nicht erst beim Merge
+- **Visuell:** Zentraler Orchestrator-Knoten mit ausgehenden Pfeilen zu N Subagent-Knoten; Rückpfeile mit Gate-Symbol (✓) markiert
 
 ### Folie 12 — Fully Agentic: Praxis & Erkenntnisse (11:45–13:00) — *Jakob Ayo*
-**TODO: Inhalte werden von Jakob Ayo nachgereicht.**
-
-Vorgeschlagene Struktur (Platzhalter):
-- Konkretes Praxisbeispiel (anonymisiert)
-- Was hat funktioniert? Was nicht?
-- Quantitative Wirkung (Durchsatz, Fehlerquote, Zeitersparnis)
-- Empfehlungen für den Einsatz im Unternehmen
-- **Visuell:** Diagramm/Screenshot eines real durchgelaufenen Agentic Workflows (Platzhalter)
+- **Beispiel-Prompt (UI-Feature, anonymisiert):**
+  > *"Add a dark-mode toggle stored in user preferences, persisted across sessions."*
+- **Ablauf des Agenten (live demonstriert oder als Strip):**
+  1. Orchestrator nimmt Prompt auf, erstellt Plan
+  2. Subagents implementieren + testen die Schritte
+  3. Approval nach jeder Subagent-Task
+  4. Fertiger PR zur finalen Review
+- **Was funktioniert / was nicht:**
+  - ✓ Klar abgegrenzter Scope mit definiertem Erfolgskriterium → läuft autonom durch
+  - ✗ Open-ended Architekturentscheidungen, neuartige Algorithmen → Agent driftet oder zirkelt
+- **Empfehlung für den Einsatz im Unternehmen:** **Pick the right scope** — Autonomie-Level an Task-Komplexität koppeln; Fully Agentic nicht für architektonische oder neuartige Arbeit verwenden
+- **Visuell:** Prompt prominent als Zitat-Block, dahinter dezenter Ablauf-Strip mit den vier Schritten
 
 ### Folie 13 — Vibe Coding Patterns: Übersicht (13:00–14:00) — *Minh Cuong Tran*
 **TODO: Inhalte werden von Cuong Tran nachgereicht.**
