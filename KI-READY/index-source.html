@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Vibe Coding im Unternehmenskontext — KI-READY Summit · ANDRITZ</title>
+
+  <!-- ext-resource-dependency for JS-referenced images -->
+  <meta name="ext-resource-dependency" content="assets/crack-v1.jpg" data-resource-id="crackV1" />
+  <meta name="ext-resource-dependency" content="assets/crack-v2.jpg" data-resource-id="crackV2" />
+
+  <style>
+    html, body { margin: 0; padding: 0; background: #0a0a0a; height: 100%; overflow: hidden; font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; }
+    #root { position: fixed; inset: 0; }
+  </style>
+
+  <!-- Bundler splash / no-JS fallback -->
+  <template id="__bundler_thumbnail" data-bg-color="#003068">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <rect width="1920" height="1080" fill="#003068"/>
+      <!-- ANDRITZ A glyph silhouette -->
+      <path d="M960,180 L1160,900 H1080 L1010,700 H910 L840,900 H760 Z M960,340 L1040,620 H880 Z"
+            fill="#FFFFFF" opacity="0.18"/>
+      <!-- Title text blocks -->
+      <rect x="200" y="420" width="680" height="12" rx="6" fill="#FFFFFF" opacity="0.7"/>
+      <rect x="200" y="460" width="520" height="12" rx="6" fill="#FFFFFF" opacity="0.4"/>
+      <!-- Orange accent bar -->
+      <rect x="200" y="390" width="64" height="6" fill="#E05A00"/>
+    </svg>
+  </template>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.js"></script>
+
+  <script type="text/babel" src="animations.jsx"></script>
+  <script type="text/babel" src="shell.jsx"></script>
+  <script type="text/babel" src="scenes-a.jsx"></script>
+  <script type="text/babel" src="scenes-b.jsx"></script>
+  <script type="text/babel" src="scenes-c.jsx"></script>
+  <script type="text/babel" src="scenes-d.jsx"></script>
+  <script type="text/babel" src="app.jsx"></script>
+</body>
+</html>
